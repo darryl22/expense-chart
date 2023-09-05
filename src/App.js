@@ -14,6 +14,7 @@ function App() {
   }
 
   let max = 0
+  let total = 0
   for (let x = 0; x < data.length; x++) {
     if (data[x].amount > max) {
       max = data[x].amount
@@ -25,6 +26,7 @@ function App() {
     let detailsId = "details-" + index
     let percentage = Math.floor((i.amount / max) * 100)
     let highest = false
+    total = total + i.amount
     if (i.amount === max) {
       highest = true
     }
@@ -58,7 +60,7 @@ function App() {
           <div className="summary-div">
             <div>
               <p>Total this month</p>
-              <p style={{fontWeight: "bold", fontSize: "2em"}}>$100</p>
+              <p style={{fontWeight: "bold", fontSize: "2em"}}>${total}</p>
             </div>
             <div style={{display: "flex", flexDirection: "column", alignItems: "flex-end"}}>
               <p style={{fontWeight: "bold"}}>+2.4%</p>
